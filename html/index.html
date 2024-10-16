@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 180px;
+            align-items: center;
+            border: 3px solid violet;
+        }
+        nav button{
+            margin: 5px;
+            margin-bottom: 50px;
+        }
+        nav ul li{
+            margin-right: 25px;
+            display: inline;
+        }
+        nav ul li a{
+            color: black;
+        }
+        nav h1{
+            color: violet;
+        }
+        .header__burger_btn{
+            width: 40px;
+            height: 40px;
+            border: none;
+            position: relative;
+            display: none;
+            z-index: 2;
+            background-color: #fff;
+            transition: all 300ms ease-in-out;
+        }
+        .header__burger_btn span{
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background-color: black;
+            left: 5px;
+            transition: all 600ms ease-in-out,opacity 600ms,background-color 600ms;
+        }
+        .header__burger_btn span:nth-child(1){
+            transform: translateY(-10px);
+        }
+        .header__burger_btn span:nth-child(3){
+            transform: translateY(10px);
+        }
+        .nav1.open1 .header__burger_btn span:nth-child(2){
+            opacity: 0;
+        }
+        .nav1.open1 .header__burger_btn span:nth-child(1){
+            transform: rotate(45deg);
+        }
+        .nav1.open1 .header__burger_btn span:nth-child(3){
+            transform: rotate(-45deg);
+        }
+        .nav1.open1 .header__burger_btn span{
+            background-color: white;
+        }
+        .nav1.open1 .header__burger_btn{
+            background-color:violet;
+        }
+        @media (max-width:993px){
+            .header__burger_btn{
+                display: block;
+            }
+            .menu{
+                width: 350px;
+                padding: 65px 20px 20px 20px;
+                position: absolute;
+                left: -350px;
+                top: 0;
+                background-color:violet;
+                transition:transform 600ms ease-in-out;
+            }
+            .menu li{
+                margin-bottom: 18px;
+                display: block;
+            }
+            .menu li a{
+                color: aliceblue;
+                font-size: 21px;
+                display: block;
+            }
+            .nav1.open1 .menu{
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="nav1">
+            <button id="burger" class="header__burger_btn">
+                <span></span><span></span><span></span>
+            </button>
+            <h1>LOGO</h1>
+            <ul class="menu">
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">theme</a></li>
+                <li><a href="#">lol</a></li>
+                <li><a href="#">photos</a></li>
+                <li><a href="#">info</a></li>
+                <li><a href="#">wow</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            document.querySelector('#burger').addEventListener('click',function(){
+                document.querySelector('.nav1').classList.toggle('open1')
+            })
+        })
+    </script>
+</body>
+</html>
